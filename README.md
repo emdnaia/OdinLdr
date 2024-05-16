@@ -95,6 +95,9 @@ If you have crash, you can dm on twitter or open github issues, please send :
 
   	- Debugger screen with callstack
 
+You need to have python on you're windows machine, you have post-ex build to run python script.
+
+Python script use sys and pefile
    
 
 # CREDIT 
