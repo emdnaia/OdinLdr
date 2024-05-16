@@ -17,7 +17,7 @@ InternetOpenA :
 ![alt text](https://raw.githubusercontent.com/RtlDallas/OdinLdr/main/img/internetopa_callstack.PNG)
 
 WaitForSingleObject :
-![alt text](https://raw.githubusercontent.com/RtlDallas/OdinLdr/main/img/wfso_scalltack.PNG)
+![alt text](https://raw.githubusercontent.com/RtlDallas/OdinLdr/main/img/wfso_scalltack.png)
 
 # EXECUTION OF LOADER
     
