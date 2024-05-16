@@ -19,7 +19,7 @@ InternetOpenA :
 WaitForSingleObject :
 ![alt text](https://raw.githubusercontent.com/RtlDallas/OdinLdr/main/img/wfso_scalltack.PNG)
 
-# Execution of loader 
+# EXECUTION OF LOADER
     
 1 - Create heap for beacon usage
 
@@ -43,7 +43,7 @@ WaitForSingleObject :
 
 10 - Self delete the loader
 
-# Beacon run 
+# BEACON RUN
 
 - All WININET function is hooked and use callstack crafting for all wininet call
   
@@ -65,7 +65,7 @@ WaitForSingleObject :
     3 - Exit thread
 
 
- # How to use 
+ # HOW TO USE
 
 Compile the loader and load the cna script (odin.cna)
   
@@ -98,7 +98,18 @@ If you have crash, you can dm on twitter or open github issues, please send :
 You need to have python on you're windows machine, you have post-ex build to run python script.
 
 Python script use sys and pefile
-   
+
+# MEMORY SCANNER 
+
+Moneta :
+![alt text](https://raw.githubusercontent.com/RtlDallas/OdinLdr/main/img/moneta.PNG)
+
+Pe-Sieve :
+![alt text](https://raw.githubusercontent.com/RtlDallas/OdinLdr/main/img/pe-sieve.PNG)
+
+HuntSleepingBeacons :
+![alt text](https://raw.githubusercontent.com/RtlDallas/OdinLdr/main/img/HuntSleepingBeacons.PNG)
+
 
 # CREDIT 
 
