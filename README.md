@@ -45,15 +45,23 @@ WaitForSingleObject :
 
 # Beacon run 
 
-- All WININET function is hooked and use callstack crafting
+- All WININET function is hooked and use callstack crafting for all wininet call
+  
 - Sleep is hooked :
+  
     1 - XOR the heap (random key for each sleep)
+  
     2 - Encrypt the beacon + udrl (remember he was copied at the end of beacon) with KrakenMask (ropchain, rwx->rw, encrypt, sleep, rw->rwx)
+  
     3 - XOR the heap 
 
+
 - ExitThread is hooked :
+  
     1 - Destroy the beacon heap
-    2 - Free the memory region with the beacon 
+  
+    2 - Free the memory region with the beacon
+  
     3 - Exit thread
 
 
@@ -81,6 +89,13 @@ stage {
 
 It's a POC, be carreful is you use this UDRL
 
+If you have crash, you can dm on twitter or open github issues, please send :
+
+	- Cobaltstrike profil
+
+  	- Debugger screen with callstack
+
+   
 
 # CREDIT 
 
